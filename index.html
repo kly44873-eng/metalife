@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>METALIFE | Khám phá nghề nghiệp 3D</title>
+    <meta
+      name="description"
+      content="METALIFE - trải nghiệm nghề nghiệp Lập trình viên và Giáo viên qua môi trường mô phỏng 3D."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="simulations/laptrinhvien/ltv.css" />
+    <link rel="stylesheet" href="simulations/giaovien/gv.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">✦</div>
+          <span>METALIFE</span>
+        </div>
+        <div class="top-note">
+          KHÁM PHÁ NGHỀ NGHIỆP · TRẢI NGHIỆM THỰC TẾ ẢO
+        </div>
+      </header>
+
+      <main id="home">
+        <section class="hero">
+          <div class="eyebrow"><span>✧</span> Career experience lab</div>
+          <h1>
+            Thử một nghề.<br /><span class="gradient-text"
+              >Khám phá một phiên bản mới của bạn.</span
+            >
+          </h1>
+          <p>
+            Đừng chỉ đọc mô tả nghề nghiệp. Hãy bước vào môi trường mô phỏng,
+            thử giải quyết những nhiệm vụ nhỏ và khám phá xem công việc ấy có
+            hợp với mình không.
+          </p>
+        </section>
+
+        <section aria-labelledby="careerHeading">
+          <div class="section-heading">
+            <div>
+              <h2 id="careerHeading">Chọn nghề để trải nghiệm</h2>
+              <p>
+                Hiện tại, nghề Lập trình viên và Giáo viên đã sẵn sàng để trải
+                nghiệm.
+              </p>
+            </div>
+            <div class="tiny-count">02 / 05 nghề khả dụng</div>
+          </div>
+          <div class="career-grid">
+            <!-- Nghề 1: Lập trình viên -->
+            <button
+              class="career-card selected"
+              type="button"
+              data-career="programmer"
+              style="--glow: rgba(91, 151, 255, 0.25)"
+              aria-pressed="true"
+            >
+              <div class="career-icon">💻</div>
+              <h3>Lập trình viên</h3>
+              <p>
+                Giải quyết vấn đề bằng logic, xây dựng và kiểm tra sản phẩm số.
+              </p>
+              <span class="tag available">CÓ THỂ TRẢI NGHIỆM</span>
+            </button>
+
+            <!-- Nghề 2: Giáo viên -->
+            <button
+              class="career-card"
+              type="button"
+              data-career="teacher"
+              style="--glow: rgba(124, 229, 189, 0.25)"
+              aria-pressed="false"
+            >
+              <div class="career-icon">📚</div>
+              <h3>Giáo viên</h3>
+              <p>
+                Truyền đạt tri thức, thiết kế bài giảng sinh động và lắng nghe
+                học sinh.
+              </p>
+              <span class="tag available">CÓ THỂ TRẢI NGHIỆM</span>
+            </button>
+
+            <!-- Nghề đang phát triển -->
+            <button
+              class="career-card locked"
+              type="button"
+              data-locked="true"
+              aria-disabled="true"
+              style="--glow: rgba(175, 126, 255, 0.2)"
+            >
+              <div class="career-icon">✎</div>
+              <h3>Nhà thiết kế</h3>
+              <p>Biến ý tưởng thành trải nghiệm trực quan dễ sử dụng.</p>
+              <span class="tag">ĐANG PHÁT TRIỂN</span>
+            </button>
+            <button
+              class="career-card locked"
+              type="button"
+              data-locked="true"
+              aria-disabled="true"
+              style="--glow: rgba(91, 224, 190, 0.17)"
+            >
+              <div class="career-icon">＋</div>
+              <h3>Bác sĩ</h3>
+              <p>
+                Quan sát tình huống, phân tích thông tin và chăm sóc bệnh nhân.
+              </p>
+              <span class="tag">ĐANG PHÁT TRIỂN</span>
+            </button>
+            <button
+              class="career-card locked"
+              type="button"
+              data-locked="true"
+              aria-disabled="true"
+              style="--glow: rgba(255, 175, 105, 0.17)"
+            >
+              <div class="career-icon">⌂</div>
+              <h3>Kiến trúc sư</h3>
+              <p>Thiết kế không gian cân bằng công năng, thẩm mỹ và an toàn.</p>
+              <span class="tag">ĐANG PHÁT TRIỂN</span>
+            </button>
+          </div>
+          <div class="selection-bar">
+            <div class="selection-info">
+              <div class="mini-icon" id="selectedCareerIcon">💻</div>
+              <div>
+                <strong id="selectedCareerName">Lập trình viên là tui</strong>
+                <span id="selectedCareerDesc"
+                  >Không gian văn phòng hiện đại · 3 nhiệm vụ mô phỏng</span
+                >
+              </div>
+            </div>
+            <button class="primary-btn" id="startButton" type="button">
+              Bắt đầu trải nghiệm <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+        </section>
+      </main>
+
+      <main id="experience" class="hidden">
+        <section class="experience-top">
+          <div class="experience-title">
+            <h2 id="experienceRoleTitle">Ngày làm việc đầu tiên</h2>
+            <p id="experienceRoleSubtitle">
+              Vai trò: Lập trình viên tập sự · Môi trường mô phỏng 3D
+            </p>
+          </div>
+          <button class="quiet-btn" id="backButton" type="button">
+            ← Quay lại chọn nghề
+          </button>
+        </section>
+        <section class="experience-layout">
+          <div>
+            <div class="game-shell">
+              <canvas
+                id="gameCanvas"
+                tabindex="0"
+                aria-label="Môi trường văn phòng 3D" 
+              ></canvas>
+              <div class="game-hud">
+                <div class="hud-row">
+                  <div class="hud-chip" id="hudLocation">
+                    🏢 VĂN PHÒNG METALIFE
+                  </div>
+                  <div
+                    style="
+                      display: flex;
+                      gap: 8px;
+                      align-items: center;
+                      pointer-events: auto;
+                    "
+                  >
+                    <div class="hud-chip" id="gameStatus">CHƯA VÀO CA</div>
+                    <button
+                      class="hud-chip"
+                      id="fullscreenButton"
+                      type="button"
+                      style="cursor: pointer"
+                      title="Nhấn F để bật hoặc tắt toàn màn hình"
+                    >
+                      ⛶ Toàn màn hình (F)
+                    </button>
+                  </div>
+                </div>
+
+                <div class="mission-pin hidden" id="missionPin" aria-live="polite">
+                  <div class="mission-pin-copy">
+                    <div class="mission-pin-label" id="missionPinLabel">NHIỆM VỤ TIẾP THEO</div>
+                    <div class="mission-pin-title" id="missionPinTitle">Đang tải nhiệm vụ...</div>
+                    <p class="mission-pin-desc" id="missionPinDesc">Nhiệm vụ sẽ hiện ở đây khi vào game.</p>
+                  </div>
+                  <button class="mission-pin-button" id="missionPinButton" type="button">Làm ngay ↗</button>
+                </div>
+                <div class="done-banner hidden" id="doneBanner" aria-live="polite">
+                  <div><b>🎉 Bạn đã hoàn thành tất cả nhiệm vụ!</b><span>Nhấn <kbd>F</kbd> để thoát toàn màn hình và xem kết luận.</span></div>
+                  <button type="button" id="doneBannerBtn">Xem kết luận (F)</button>
+                </div>
+                <div class="hud-missions" id="hudMissions">
+                  <div class="hm-head"><span>📋 NHIỆM VỤ</span><span id="hmCount">0/3</span></div>
+                  <div class="hm-bar"><i id="hmBar"></i></div>
+                  <div id="hmList"></div>
+                  <div class="hm-foot">Phím <b>1 · 2 · 3</b> mở nhanh nhiệm vụ · <b>M</b> thu gọn/mở rộng</div>
+                </div>
+                <div class="relock-hint hidden" id="relockHint">🖱️ Nhấp vào màn hình để tiếp tục nhìn xung quanh</div>
+                <div class="hud-row">
+                  <div class="hud-chip" id="positionHint">
+                    Nhấn nút bên dưới để bắt đầu
+                  </div>
+                  <div class="hud-chip" id="missionProgress">Nhiệm vụ: 0/3</div>
+                </div>
+                <div class="crosshair" aria-hidden="true"></div>
+                <div
+                  class="interact-hint hidden"
+                  id="interactHint"
+                  aria-live="polite"
+                ></div>
+              </div>
+              <div class="game-overlay" id="gameOverlay">
+                <div class="overlay-card">
+                  <div class="overlay-icon" id="overlayIcon">🖥️</div>
+                  <h3 id="overlayTitle">Chào mừng đến với METALIFE!</h3>
+                  <p id="overlayText">
+                    Khám phá không gian làm việc 3D, sau đó chọn từng nhiệm vụ ở
+                    bảng bên cạnh. Đây là mô phỏng định hướng nghề nghiệp, không
+                    phải bài kiểm tra năng lực.
+                  </p>
+                  <div class="key-row">
+                    <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd
+                    ><kbd>CHUỘT</kbd>
+                  </div>
+                  <button class="primary-btn" id="enterGame" type="button">
+                    Vào không gian 3D
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="report hidden" id="report">
+              <div class="score-pill" id="reportScore">
+                ĐÃ HOÀN THÀNH 0/3 NHIỆM VỤ
+              </div>
+              <h3>Báo cáo trải nghiệm của bạn</h3>
+              <p id="reportIntro"></p>
+              <ul id="reportList"></ul>
+              <p>
+                <strong>Lưu ý: </strong> Hãy xem kết quả như một điểm bắt đầu để
+                tự khám phá, không phải kết luận nghề nghiệp cuối cùng.
+              </p>
+              <button class="secondary-btn" id="retryButton" type="button">
+                Thử lại nhiệm vụ
+              </button>
+            </div>
+          </div>
+          <aside class="side-panel">
+            <h3>Điều khiển</h3>
+            <div class="tip">
+              W / A / S / D: di chuyển<br />
+              Chuột: nhìn xung quanh<br />
+              F: Phóng to / Thu nhỏ màn hình<br />
+              <span id="interactTip">E: tương tác với dấu nhiệm vụ</span><br />
+              <span id="keyQuick" class="hidden">1 / 2 / 3: mở nhanh nhiệm vụ<br /></span>
+              M: thu gọn bảng nhiệm vụ (khi phóng to)<br />
+              ESC: tạm dừng<br />
+              <span id="finishTip">Làm xong tất cả nhiệm vụ: nhấn F để xem kết luận</span>
+            </div>
+          </aside>
+        </section>
+      </main>
+
+      <main id="conclusionPage" class="hidden">
+        <section class="experience-top">
+          <div class="experience-title">
+            <h2>Kết luận trải nghiệm</h2>
+            <p id="conclSub">Kết quả chỉ mang tính tham khảo.</p>
+          </div>
+          <button class="quiet-btn" id="conclHome" type="button">← Về trang chủ</button>
+        </section>
+        <div class="concl-wrap" id="conclBody"></div>
+      </main>
+
+      <footer>
+        METALIFE · Một công cụ khám phá nghề nghiệp dành cho học sinh. Kết quả
+        chỉ mang tính tham khảo.
+      </footer>
+    </div>
+
+    <div class="toast hidden" id="toast" role="status" aria-live="polite"></div>
+    <div
+      class="mission-modal hidden"
+      id="missionModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+    >
+      <div class="modal-card">
+        <div class="modal-top">
+          <div>
+            <h3 id="modalTitle">Nhiệm vụ</h3>
+            <p id="modalDescription"></p>
+          </div>
+          <button
+            class="close-modal"
+            id="closeModal"
+            type="button"
+            aria-label="Đóng"
+          >
+            ✕
+          </button>
+        </div>
+        <div class="task-prompt" id="taskPrompt"></div>
+        <form id="missionForm">
+          <div class="task-options" id="taskOptions"></div>
+          <div id="taskFeedback" class="hidden" aria-live="polite"></div>
+          <div class="modal-actions">
+            <button class="quiet-btn" id="cancelMission" type="button">
+              Để sau
+            </button>
+            <button class="primary-btn" id="submitMission" type="submit">
+              Kiểm tra lựa chọn
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="code-modal hidden" id="codeModal" role="dialog" aria-modal="true" aria-labelledby="codeTitle">
+      <section class="code-card">
+        <div class="code-head">
+          <div><h3 id="codeTitle">💻 Nhiệm vụ: Sửa lỗi chương trình</h3><p>Khách hàng cần chương trình tính tổng từ 1 đến n. Hãy sửa lỗi vòng lặp, sau đó chạy thử.</p></div>
+          <button class="close-modal" id="closeCode" type="button" aria-label="Đóng trình sửa code">✕</button>
+        </div>
+        <div class="task-prompt"><strong>Yêu cầu:</strong> Với n = 5, kết quả đúng phải là 15. Tìm và sửa lỗi trong đoạn C++ bên dưới.</div>
+        <textarea id="codeEditor" class="code-editor" spellcheck="false" autocapitalize="off" autocomplete="off">#include <iostream>
+using namespace std;
+
+int main() {
+    int n = 5;
+    int tong = 0;
+    for (int i = 1; i < n; i++) {
+        tong += i;
+    }
+    cout << tong;
+    return 0;
+}</textarea>
+        <div id="codeOutput" class="code-output" aria-live="polite">Sẵn sàng. Nhấn “Chạy thử” để kiểm tra nhiệm vụ.</div>
+        <div class="code-actions">
+          <button class="quiet-btn" id="resetCode" type="button">Khôi phục code mẫu</button>
+          <button class="secondary-btn" id="closeCodeBottom" type="button">Để sau</button>
+          <button class="primary-btn" id="runCode" type="button">▶ Chạy thử</button>
+        </div>
+        <div class="bug-step hidden" id="bugReportStep">
+          <h4>📝 Bước 2: Viết báo cáo sửa lỗi theo mẫu</h4>
+          <p>Code đã chạy đúng! Hãy gửi báo cáo ngắn cho khách hàng theo mẫu dưới đây để hoàn thành nhiệm vụ.</p>
+          <div class="bug-template"><b>Mẫu:</b> “Chương trình bị <i>[lỗi gì]</i> vì <i>[nguyên nhân]</i>. Tôi đã <i>[cách sửa]</i>. Sau khi sửa, <i>[kết quả kiểm tra]</i>.”</div>
+          <label>① Mô tả lỗi <small>chương trình sai như thế nào?</small><input id="brIssue" type="text" autocomplete="off" placeholder="Ví dụ: Với n = 5, chương trình in ra 10 thay vì 15" /></label>
+          <label>② Nguyên nhân <small>vì sao lại sai?</small><input id="brCause" type="text" autocomplete="off" placeholder="Ví dụ: Điều kiện vòng lặp dừng sớm nên bỏ sót giá trị i = n" /></label>
+          <label>③ Cách sửa <small>bạn đã đổi gì?</small><input id="brFix" type="text" autocomplete="off" placeholder="Ví dụ: Đổi i < n thành i <= n" /></label>
+          <label>④ Kết quả kiểm tra <small>chạy lại thì ra gì?</small><input id="brResult" type="text" autocomplete="off" placeholder="Ví dụ: Với n = 5, chương trình in ra 15, đúng yêu cầu" /></label>
+          <div id="brFeedback" class="code-output" aria-live="polite"></div>
+          <div class="code-actions"><button class="primary-btn" id="brSubmit" type="button">Gửi báo cáo ✓</button></div>
+        </div>
+        <p class="code-note">Lưu ý: bản này mô phỏng việc kiểm tra lỗi vòng lặp trong trình duyệt, chưa phải trình biên dịch C++ đầy đủ. Bản chạy C++ thật cần tích hợp compiler an toàn ở bước sau.</p>
+      </section>
+    </div>
+
+    <div class="code-modal hidden" id="typingModal" role="dialog" aria-modal="true" aria-labelledby="typingTitle">
+      <section class="code-card">
+        <div class="code-head">
+          <div><h3 id="typingTitle">⌨️ Nhiệm vụ 3: Soạn văn bản gửi khách hàng</h3><p>Gõ lại chính xác đoạn văn mẫu bên dưới. Hệ thống ghi nhận số từ bạn gõ sai để đưa ra kết luận cuối cùng. Không thể dán (paste) văn bản.</p></div>
+          <button class="close-modal" id="closeTyping" type="button" aria-label="Đóng nhiệm vụ gõ văn bản">✕</button>
+        </div>
+        <div class="type-stats">⏱ Thời gian: <b id="tySec">0</b>s <span>✍️ Tiến độ: <b id="tyProg">0%</b></span> <span>❌ Từ sai: <b id="tyWrong">0</b></span></div>
+        <div class="type-sample" id="typeSample" aria-label="Đoạn văn mẫu cần gõ"></div>
+        <textarea id="typeInput" class="code-editor" style="min-height:120px" spellcheck="false" autocapitalize="off" autocomplete="off" placeholder="Bắt đầu gõ đoạn văn ở đây…"></textarea>
+        <div id="typeFeedback" class="code-output" aria-live="polite">Gõ đúng từng chữ, kể cả dấu câu và dấu tiếng Việt. Gõ sai có thể xóa và sửa lại, nhưng lần sai vẫn được ghi nhận.</div>
+        <div class="code-actions">
+          <button class="quiet-btn" id="typeReset" type="button">Làm lại từ đầu</button>
+          <button class="secondary-btn" id="closeTypingBottom" type="button">Hoàn thành!</button>
+        </div>
+      </section>
+    </div>
+
+    // chèn three.js từ CDN
+    <script type="module">
+      import * as THREE from "three";
+      import { PointerLockControls } from "three/addons/controls/PointerLockControls.js";
+      window.THREE = THREE;
+      window.PointerLockControls = PointerLockControls;
+    </script>
+
+    // thêm nghề thì phải nhập dẫn ở đây
+    <script defer src="js/giulieu.js"></script>
+    <script defer src="js/giaodienchung.js"></script>
+    <script defer src="js/dung3dchung.js"></script>
+    <script defer src="simulations/laptrinhvien/ltv.js"></script>
+    <script defer src="simulations/giaovien/gv.js"></script>
+    <script defer src="js/main.js"></script>
+  </body>
+</html>
